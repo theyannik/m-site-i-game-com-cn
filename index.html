@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>爱游戏 · 游戏资料索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f0f7fa;
+      color: #1c2d3a;
+      line-height: 1.6;
+      padding: 0 1rem 3rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 0 0.6rem 0;
+      border-bottom: 2px solid #bcd8e0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: #0b4c5c;
+    }
+
+    .brand span {
+      background: #0b6e7a;
+      color: white;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1c5c66;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #0d7a8a;
+      color: #05333d;
+    }
+
+    /* hero 区域 */
+    .hero {
+      margin: 2.5rem 0 2rem 0;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #063742;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #1b5763;
+      max-width: 700px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero .highlight-line {
+      background: #d7edf2;
+      padding: 0.7rem 1.2rem;
+      border-radius: 30px;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #063742;
+      border-left: 5px solid #0d7a8a;
+    }
+
+    .hero .highlight-line a {
+      color: #075a68;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero .highlight-line a:hover {
+      color: #032e38;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.8rem 0 2.5rem 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 6px 16px rgba(6, 60, 70, 0.06);
+      border: 1px solid #d4e6eb;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(6, 72, 80, 0.08);
+    }
+
+    .card .icon-badge {
+      width: 40px;
+      height: 40px;
+      background: #c6e3e9;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #0b5c69;
+      margin-bottom: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #0b4c57;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.93rem;
+      color: #1f4752;
+      line-height: 1.5;
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #e4f0f3;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #0b5c69;
+    }
+
+    /* 常见说明/FAQ摘要 */
+    .faq-section {
+      background: #e9f4f7;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0 2.2rem 0;
+      border: 1px solid #c8dfe6;
+    }
+
+    .faq-section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #063742;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .faq-section .faq-meta {
+      font-size: 0.9rem;
+      color: #1b5b67;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid #0d7a8a;
+      padding-left: 0.8rem;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px dashed #b7d3db;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #0b4c57;
+      font-size: 0.95rem;
+    }
+
+    .faq-a {
+      color: #1a4855;
+      font-size: 0.92rem;
+    }
+
+    .info-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #1f4e5a;
+      background: #d7e9ee;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      display: inline-block;
+    }
+
+    .info-note a {
+      color: #075561;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid #bed9e1;
+      font-size: 0.85rem;
+      color: #2f6a78;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .faq-section {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <div class="brand">资料整理<span>索引</span></div>
+    <div class="nav-links">
+      <a href="#">概述</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">目录</a>
+    </div>
+  </nav>
+
+  <!-- hero 介绍 -->
+  <section class="hero">
+    <h1>游戏资料 · 信息索引</h1>
+    <div class="sub">基于「爱游戏」内容的轻量化整理，聚焦场景化信息与常见问题摘要。</div>
+    <div class="highlight-line">
+      📁 主要信息源来自 <a href="https://m-site-i-game.com.cn">爱游戏</a> 平台，
+      持续收录并结构化呈现游戏相关素材与说明。
+    </div>
+  </section>
+
+  <!-- 三个场景模块 (卡片网格) -->
+  <div class="card-grid">
+    <div class="card">
+      <div class="icon-badge">🎮</div>
+      <h3>玩法场景</h3>
+      <p>收集主流游戏模式、操作机制及常见术语，便于快速查阅玩法分类与核心设定。</p>
+      <span class="tag">12 条目</span>
+    </div>
+    <div class="card">
+      <div class="icon-badge">📋</div>
+      <h3>资料归档</h3>
+      <p>整理版本更新记录、活动时间轴与系统说明，辅助信息检索与横向对比。</p>
+      <span class="tag">8 分类</span>
+    </div>
+    <div class="card">
+      <div class="icon-badge">🔍</div>
+      <h3>索引工具</h3>
+      <p>针对游戏内元素（角色、物品、任务）建立扁平化索引，降低查找成本。</p>
+      <span class="tag">持续扩充</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要风格) -->
+  <section class="faq-section">
+    <h2>常见说明</h2>
+    <div class="faq-meta">基于「爱游戏」内容整理 · 摘要</div>
+
+    <div class="faq-item">
+      <span class="faq-q">❓ 资料覆盖哪些游戏领域？</span>
+      <span class="faq-a">主要面向移动端及多平台游戏，涵盖机制说明、术语释义、版本记录等，数据源来自平台公开内容。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">❓ 如何确认信息的时效性？</span>
+      <span class="faq-a">索引页面会标注最近更新日期，且每条信息尽量引用原始出处。建议以 <a href="https://m-site-i-game.com.cn">爱游戏</a> 最新页面为准。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">❓ 是否可以补充或修正条目？</span>
+      <span class="faq-a">本索引为静态整理版，暂不开放直接编辑。如需反馈内容可参考平台内联系方式。</span>
+    </div>
+
+    <div class="info-note">
+      📌 更多细节与完整资料请直接参考 <a href="https://m-site-i-game.com.cn">爱游戏</a> 站内内容。
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="footer-note">
+    <span>游戏资料索引 · 非官方</span>
+    <span>信息整理自 <a href="https://m-site-i-game.com.cn" style="color: #075a68; text-decoration: underline;">爱游戏</a></span>
+    <span>仅供个人参考</span>
+  </footer>
+</div>
+</body>
+</html>
