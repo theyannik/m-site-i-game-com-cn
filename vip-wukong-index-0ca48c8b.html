@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悟空体育 – 稳定入口与页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce6c9 0%, #fbd6a8 35%, #f7c68b 70%, #f3b672 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.2rem;
+    }
+
+    .page-wrapper {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* hero 卡片区 */
+    .hero-card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      padding: 3rem 2.5rem 2.8rem;
+      border-radius: 42px 42px 42px 42px;
+      box-shadow: 0 15px 35px -8px rgba(180, 100, 20, 0.25);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255, 215, 170, 0.3);
+    }
+
+    .hero-card h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #5e3b1c;
+      background: linear-gradient(135deg, #7a4f2a, #b46d34);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #7a5c3e;
+      background: #fcf2e5;
+      display: inline-block;
+      padding: 0.3rem 1.5rem;
+      border-radius: 40px;
+      margin-bottom: 1.8rem;
+      font-weight: 450;
+      letter-spacing: 0.3px;
+      border: 1px solid #f0dac4;
+    }
+
+    .hero-desc {
+      max-width: 680px;
+      margin: 0 auto 1.2rem;
+      color: #3f2c1a;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .hero-link-wrap {
+      margin-top: 1.2rem;
+    }
+
+    .hero-link-wrap a {
+      display: inline-block;
+      background: #e2873b;
+      color: white;
+      padding: 0.8rem 2.4rem;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(190, 100, 30, 0.3);
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-link-wrap a:hover {
+      background: #c9702a;
+      transform: scale(1.02);
+    }
+
+    /* 内容卡片通用 */
+    .card {
+      background: #fffffff0;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 2rem 2.2rem 2.3rem;
+      box-shadow: 0 10px 25px -10px rgba(140, 70, 20, 0.2);
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 225, 195, 0.3);
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #5a3a1e;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #f1dccb;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      color: #6d4c2b;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .card p {
+      color: #3a2b1c;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      font-size: 0.98rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 1.8rem;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .feature-item {
+      background: #faf3ea;
+      padding: 0.9rem 1.2rem;
+      border-radius: 24px;
+      border-left: 4px solid #e2873b;
+      font-weight: 450;
+      color: #3f2b16;
+    }
+
+    .feature-item strong {
+      color: #b4682e;
+    }
+
+    .faq-block {
+      margin-top: 0.5rem;
+    }
+
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px dashed #eddac9;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 550;
+      color: #5a3a1e;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #4d3823;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      padding-left: 0.3rem;
+    }
+
+    .footer-links {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      color: #5a3f28;
+    }
+
+    .footer-links a {
+      color: #7c4f2a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #c29264;
+      margin: 0 0.3rem;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 2px solid #b46d34;
+    }
+
+    .footer-note {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .hero-card {
+        padding: 2rem 1.2rem;
+      }
+      .hero-card h1 {
+        font-size: 2rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+      .hero-link-wrap a {
+        font-size: 1rem;
+        padding: 0.65rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- hero 区 -->
+    <div class="hero-card">
+      <h1>悟空体育 · 稳定入口</h1>
+      <div class="hero-sub">清晰 · 可靠 · 说明页</div>
+      <p class="hero-desc">
+        从入口开始就保持稳定与透明。无论你是第一次了解，还是希望确认访问路径，
+        这个页面都为你整理了关于<strong>悟空体育</strong>的基本信息、平台特点与常见疑问。
+        以下内容均经过整理，帮助你快速建立认知。
+      </p>
+      <div class="hero-link-wrap">
+        <a href="https://vip-wukong.com">悟空体育</a>
+      </div>
+    </div>
+
+    <!-- 优势区：稳定特性 -->
+    <div class="card">
+      <h2>平台特点</h2>
+      <div class="feature-grid">
+        <div class="feature-item"><strong>访问稳定</strong> · 持续维护的入口链接，减少访问过程中的不确定性。</div>
+        <div class="feature-item"><strong>界面简洁</strong> · 去除非必要干扰，信息层级清晰，操作路径直观。</div>
+        <div class="feature-item"><strong>内容说明</strong> · 页面内整合了常见说明与 FAQ，省去四处翻找的麻烦。</div>
+        <div class="feature-item"><strong>适配多端</strong> · 在手机与电脑上均有合理的版式与间距。</div>
+      </div>
+    </div>
+
+    <!-- 说明区：页面定位与使用场景 -->
+    <div class="card">
+      <h2>页面说明</h2>
+      <p>
+        这个介绍页的存在，是为了提供一个<strong>集中、可参考的信息点</strong>。
+        当你需要回顾悟空体育的相关说明，或者想确认某个功能是否稳定可用时，
+        可以回到这里查看。页面内容会保持更新，但不会频繁变动核心结构。
+      </p>
+      <h3>常见使用场景</h3>
+      <p>
+        · 初次接触，想了解平台的基本特点和稳定入口。<br>
+        · 需要快速找到指向 <a href="https://vip-wukong.com" style="color:#b46d34; text-decoration:underline;">悟空体育</a> 的明确链接。<br>
+        · 想浏览 FAQ 摘要，提前了解一些常见问题。<br>
+        · 在移动端或不同网络环境下，依然能获得一致的信息展示。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+      <h2>FAQ 摘要</h2>
+      <div class="faq-block">
+        <div class="faq-item">
+          <div class="faq-q">Q：这个介绍页是官方页面吗？</div>
+          <div class="faq-a">它是由整理者制作的说明型页面，内容基于公开信息和平台特点归纳，并非官方唯一来源，但信息经过核对。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q：如何访问悟空体育？</div>
+          <div class="faq-a">可直接点击上方或本段中的 <a href="https://vip-wukong.com" style="color:#b46d34; text-decoration:underline;">悟空体育</a> 链接，链接为长期维护的稳定入口。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q：页面内容多久更新一次？</div>
+          <div class="faq-a">会依据平台变化不定期调整，重要更新会在本页面备注。日常保持稳定。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q：在手机上显示效果怎么样？</div>
+          <div class="faq-a">本页面已做响应式适配，在小屏设备上卡片会适当缩放，内容依然清晰可读。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+      <span>相关链接：</span>
+      <a href="https://vip-wukong.com">悟空体育</a>
+      <span class="footer-note">· 本页面仅作说明用途，内容力求客观 ·</span>
+    </div>
+  </div>
+</body>
+</html>
